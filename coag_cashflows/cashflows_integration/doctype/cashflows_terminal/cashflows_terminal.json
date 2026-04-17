@@ -1,0 +1,181 @@
+{
+ "actions": [],
+ "autoname": "field:terminal_id",
+ "creation": "2026-04-17 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "identity_section",
+  "terminal_id",
+  "label",
+  "column_break_identity",
+  "is_active",
+  "network_section",
+  "terminal_ip",
+  "column_break_network",
+  "port",
+  "device_section",
+  "serial_number",
+  "model",
+  "column_break_device",
+  "merchant_id",
+  "terminal_acquirer_id",
+  "health_section",
+  "last_ping_ok",
+  "last_ping_at",
+  "column_break_health",
+  "last_ping_error"
+ ],
+ "fields": [
+  {
+   "fieldname": "identity_section",
+   "fieldtype": "Section Break",
+   "label": "Identity"
+  },
+  {
+   "description": "Short, stable identifier used in URLs and logs. Example: BAR-1.",
+   "fieldname": "terminal_id",
+   "fieldtype": "Data",
+   "label": "Terminal ID",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "description": "Human-readable name shown on dashboards. Example: 'Bar Station 1'.",
+   "fieldname": "label",
+   "fieldtype": "Data",
+   "label": "Label"
+  },
+  {
+   "fieldname": "column_break_identity",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "1",
+   "description": "Uncheck to disable this terminal without deleting the record. Disabled terminals reject new payments.",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active"
+  },
+  {
+   "fieldname": "network_section",
+   "fieldtype": "Section Break",
+   "label": "Network"
+  },
+  {
+   "description": "LAN IP address of the terminal. Set a static DHCP reservation on the router so this does not change.",
+   "fieldname": "terminal_ip",
+   "fieldtype": "Data",
+   "label": "Terminal IP",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_network",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "8080",
+   "description": "Leave blank to use the default from Cashflows Settings.",
+   "fieldname": "port",
+   "fieldtype": "Int",
+   "label": "Port"
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "device_section",
+   "fieldtype": "Section Break",
+   "label": "Device (auto-populated)"
+  },
+  {
+   "description": "Auto-populated from /device.json on ping. Do not edit manually.",
+   "fieldname": "serial_number",
+   "fieldtype": "Data",
+   "label": "Serial Number",
+   "read_only": 1
+  },
+  {
+   "description": "Auto-populated from /device.json on ping.",
+   "fieldname": "model",
+   "fieldtype": "Data",
+   "label": "Model",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_device",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Merchant ID (MID) from Cashflows. Auto-populated from the first transaction's online_request.",
+   "fieldname": "merchant_id",
+   "fieldtype": "Data",
+   "label": "Merchant ID (MID)",
+   "read_only": 1
+  },
+  {
+   "description": "Terminal ID (TID) assigned by Cashflows. Auto-populated from the first transaction.",
+   "fieldname": "terminal_acquirer_id",
+   "fieldtype": "Data",
+   "label": "Acquirer Terminal ID (TID)",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "health_section",
+   "fieldtype": "Section Break",
+   "label": "Health"
+  },
+  {
+   "default": "0",
+   "fieldname": "last_ping_ok",
+   "fieldtype": "Check",
+   "label": "Last Ping OK",
+   "read_only": 1
+  },
+  {
+   "fieldname": "last_ping_at",
+   "fieldtype": "Datetime",
+   "label": "Last Ping At",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_health",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "last_ping_error",
+   "fieldtype": "Small Text",
+   "label": "Last Ping Error",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-17 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Cashflows Integration",
+ "name": "Cashflows Terminal",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Sales User"
+  }
+ ],
+ "sort_field": "terminal_id",
+ "sort_order": "ASC",
+ "states": [],
+ "title_field": "label",
+ "track_changes": 1
+}

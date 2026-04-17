@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include coag_cashflows/*.json
+include coag_cashflows/*/*.json
+include coag_cashflows/*/*.md
+include coag_cashflows/*/*.html
+recursive-include coag_cashflows *.css
+recursive-include coag_cashflows *.csv
+recursive-include coag_cashflows *.html
+recursive-include coag_cashflows *.ico
+recursive-include coag_cashflows *.js
+recursive-include coag_cashflows *.json
+recursive-include coag_cashflows *.md
+recursive-include coag_cashflows *.png
+recursive-include coag_cashflows *.py
+recursive-include coag_cashflows *.svg
+recursive-include coag_cashflows *.txt
+recursive-include coag_cashflows *.vue

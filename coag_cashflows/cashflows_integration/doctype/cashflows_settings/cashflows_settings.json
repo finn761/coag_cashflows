@@ -1,0 +1,112 @@
+{
+ "actions": [],
+ "creation": "2026-04-17 14:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "credentials_section",
+  "api_username",
+  "api_password",
+  "column_break_creds",
+  "default_port",
+  "polling_section",
+  "poll_interval_ms",
+  "column_break_poll",
+  "payment_timeout_seconds",
+  "connect_timeout_seconds",
+  "read_timeout_seconds"
+ ],
+ "fields": [
+  {
+   "fieldname": "credentials_section",
+   "fieldtype": "Section Break",
+   "label": "API Credentials"
+  },
+  {
+   "description": "REST API username supplied by Cashflows support. NOT the HOST CONNECTION credentials shown on the terminal's API Credentials screen.",
+   "fieldname": "api_username",
+   "fieldtype": "Data",
+   "label": "API Username",
+   "reqd": 1
+  },
+  {
+   "description": "REST API passcode supplied by Cashflows support.",
+   "fieldname": "api_password",
+   "fieldtype": "Password",
+   "label": "API Passcode",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_creds",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "8080",
+   "description": "REST API port on the terminal. Default 8080.",
+   "fieldname": "default_port",
+   "fieldtype": "Int",
+   "label": "Default Port"
+  },
+  {
+   "fieldname": "polling_section",
+   "fieldtype": "Section Break",
+   "label": "Timeouts & Polling"
+  },
+  {
+   "default": "500",
+   "description": "How often the till polls the terminal for transaction status, in milliseconds.",
+   "fieldname": "poll_interval_ms",
+   "fieldtype": "Int",
+   "label": "Poll Interval (ms)"
+  },
+  {
+   "fieldname": "column_break_poll",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "150",
+   "description": "Maximum time to wait for a payment to complete before giving up (seconds). Cashflows default is 150s.",
+   "fieldname": "payment_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Payment Timeout (s)"
+  },
+  {
+   "default": "3",
+   "description": "TCP connect timeout for HTTP calls to the terminal (seconds).",
+   "fieldname": "connect_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Connect Timeout (s)"
+  },
+  {
+   "default": "10",
+   "description": "Read timeout for HTTP calls to the terminal (seconds).",
+   "fieldname": "read_timeout_seconds",
+   "fieldtype": "Int",
+   "label": "Read Timeout (s)"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2026-04-17 14:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Cashflows Integration",
+ "name": "Cashflows Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
