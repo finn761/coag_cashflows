@@ -97,9 +97,74 @@ POS_INVOICE_FIELDS = [
 ]
 
 
+# Sales Invoice Payment is the child table that stores each payment entry on an
+# invoice. We stamp the Cashflows per-payment details here (not on the invoice
+# itself) so a split payment across two cards keeps each card's details on its
+# own row. Reconciliation against Cashflows daily settlement is then a join on
+# custom_cashflows_txn_id per row.
+SALES_INVOICE_PAYMENT_FIELDS = [
+    {
+        "fieldname": "custom_cashflows_section",
+        "label": "Cashflows",
+        "fieldtype": "Section Break",
+        "insert_after": "account",
+        "collapsible": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_terminal",
+        "label": "Cashflows Terminal",
+        "fieldtype": "Link",
+        "options": "Cashflows Terminal",
+        "insert_after": "custom_cashflows_section",
+        "read_only": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_txn_id",
+        "label": "Cashflows Transaction ID",
+        "fieldtype": "Data",
+        "insert_after": "custom_cashflows_terminal",
+        "read_only": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_auth_code",
+        "label": "Auth Code",
+        "fieldtype": "Data",
+        "insert_after": "custom_cashflows_txn_id",
+        "read_only": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_col_break",
+        "fieldtype": "Column Break",
+        "insert_after": "custom_cashflows_auth_code",
+    },
+    {
+        "fieldname": "custom_cashflows_card_brand",
+        "label": "Card Brand",
+        "fieldtype": "Data",
+        "insert_after": "custom_cashflows_col_break",
+        "read_only": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_last_4",
+        "label": "Last 4",
+        "fieldtype": "Data",
+        "insert_after": "custom_cashflows_card_brand",
+        "read_only": 1,
+    },
+    {
+        "fieldname": "custom_cashflows_merchant_id",
+        "label": "Merchant ID",
+        "fieldtype": "Data",
+        "insert_after": "custom_cashflows_last_4",
+        "read_only": 1,
+    },
+]
+
+
 CUSTOM_FIELDS = {
     "POS Profile": POS_PROFILE_FIELDS,
     "POS Invoice": POS_INVOICE_FIELDS,
+    "Sales Invoice Payment": SALES_INVOICE_PAYMENT_FIELDS,
 }
 
 
